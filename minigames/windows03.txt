@@ -1,0 +1,2 @@
+Instructions:     This is a .NET package that needs to be deployed via ElasticBeanstalk. Once deployed hit the URL and it will output your code.
+Beanstalk app: https://s3-us-west-2.amazonaws.com/gameday-resources/BeanstalkApp.zip

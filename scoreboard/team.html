@@ -1,0 +1,37 @@
+<!-- team.html -->
+<!-- index.html -->
+<html>
+    <head>
+        <title>Team Detail Page</title>
+        <meta charset="UTF-8">
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" type="text/css" href="scoreboard.css">
+       <!--  <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="Chart.bundle.min.js"></script>
+    </head>
+    <body>
+        <div class="jumbotron">
+            <div class="headercontainer">
+                <img class="headerText" src="images/GameDay.svg">
+            </div>
+        </div>
+        <div id="link"></div>
+        <div id="teamName">Team <span id="teamNameSpan"></span></div>
+        <div id="teamScore">Current Score: <span id="scoreEntry">0</span></div>
+        <div id="teamTrend">Current Trend: <span id="trendEntry">0</span></div>
+        <div id="histogramContainer">
+          <canvas id="histogram" height=250></canvas>
+        </div>
+        <div id="badgeContainer">
+            <h3>Badges</h3>
+            <div id="innerBadges">
+            </div>
+        </div>
+        <div id="teamContent"></div>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="team.js"></script>
+        <script src="moment.js"></script>
+    </body>
+</html>

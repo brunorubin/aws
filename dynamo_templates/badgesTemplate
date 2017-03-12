@@ -1,0 +1,640 @@
+[
+    {
+        "<BADGE-TABLE>": [
+            {
+                "PutRequest": {
+                    "Item": {
+                        "IconUrl": {
+                            "S": "https://<S3-BASE-URL>/badges/sillyhatsonly.png"
+                        },
+                        "Description": {
+                            "S": "Thanks for wearing silly hats"
+                        },
+                        "Id": {
+                            "S": "SILLYHATS"
+                        },
+                        "Value": {
+                            "N": "200"
+                        },
+                        "Name": {
+                            "S": "Nice hat!"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "Name": {
+                            "S": "Completed a Windows Challenge"
+                        },
+                        "Value": {
+                            "N": "5000"
+                        },
+                        "IconUrl": {
+                            "S": "https://<S3-BASE-URL>/badges/winpsremote.png"
+                        },
+                        "Id": {
+                            "S": "Windows02"
+                        },
+                        "Description": {
+                            "S": "Completed a Windows Challenge"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "IconUrl": {
+                            "S": "https://<S3-BASE-URL>/badges/participation.png"
+                        },
+                        "Description": {
+                            "S": "You got this for participating"
+                        },
+                        "Id": {
+                            "S": "PARTICIPATION"
+                        },
+                        "Value": {
+                            "N": "10"
+                        },
+                        "Name": {
+                            "S": "You participated!"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "IconUrl": {
+                            "S": "https://<S3-BASE-URL>/badges/nolaptop.png"
+                        },
+                        "Description": {
+                            "S": "You didn't bring a laptop, and are some how still playing. We are surprised, and impressed."
+                        },
+                        "Id": {
+                            "S": "NOLAPTOPS"
+                        },
+                        "Value": {
+                            "N": "2500"
+                        },
+                        "Name": {
+                            "S": "You didn't bring a laptop?"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "Name": {
+                            "S": "Completed the EC2 Instance break in challenge"
+                        },
+                        "Value": {
+                            "N": "5000"
+                        },
+                        "IconUrl": {
+                            "S": "https://<S3-BASE-URL>/badges/cheater.png"
+                        },
+                        "Id": {
+                            "S": "EC2Breakin"
+                        },
+                        "Description": {
+                            "S": "Completed the EC2 Instance break in challenge"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "IconUrl": {
+                            "S": "https://<S3-BASE-URL>/badges/perfectattendance.png"
+                        },
+                        "Description": {
+                            "S": "Thanks for showing up!"
+                        },
+                        "Id": {
+                            "S": "PERFECTATTENDANCE"
+                        },
+                        "Value": {
+                            "N": "50"
+                        },
+                        "Name": {
+                            "S": "Perfect attendance!"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "Name": {
+                            "S": "Secret badge"
+                        },
+                        "Value": {
+                            "N": "500"
+                        },
+                        "IconUrl": {
+                            "S": "https://<S3-BASE-URL>/badges/lifeboat.png"
+                        },
+                        "Id": {
+                            "S": "SECRET2"
+                        },
+                        "Description": {
+                            "S": "You got this secret badge!"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "Name": {
+                            "S": "Processed an S3 Message"
+                        },
+                        "Value": {
+                            "N": "2500"
+                        },
+                        "IconUrl": {
+                            "S": "https://<S3-BASE-URL>/badges/s3.png"
+                        },
+                        "Id": {
+                            "S": "S3TRANSPORT"
+                        },
+                        "Description": {
+                            "S": "Your team has processed a message that was sent to you over S3"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "IconUrl": {
+                            "S": "https://<S3-BASE-URL>/badges/noice5000.png"
+                        },
+                        "Description": {
+                            "S": "The Unicorn Rentals management team is EXTREMELY pleased with your work"
+                        },
+                        "Id": {
+                            "S": "NOICE5K"
+                        },
+                        "Value": {
+                            "N": "5000"
+                        },
+                        "Name": {
+                            "S": "Noice!"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "Name": {
+                            "S": "Processed an Kinesis Message"
+                        },
+                        "Value": {
+                            "N": "2500"
+                        },
+                        "IconUrl": {
+                            "S": "https://<S3-BASE-URL>/badges/kinesis.png"
+                        },
+                        "Id": {
+                            "S": "KINESISTRANSPORT"
+                        },
+                        "Description": {
+                            "S": "Your team has processed a message that was sent to you over Kinesis"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "Name": {
+                            "S": "Secret badge"
+                        },
+                        "Value": {
+                            "N": "2500"
+                        },
+                        "IconUrl": {
+                            "S": "https://<S3-BASE-URL>/badges/lifeboat.png"
+                        },
+                        "Id": {
+                            "S": "SECRET4"
+                        },
+                        "Description": {
+                            "S": "You got this secret badge!"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "Name": {
+                            "S": "Using Ansible"
+                        },
+                        "Value": {
+                            "N": "1000"
+                        },
+                        "IconUrl": {
+                            "S": "https://<S3-BASE-URL>/badges/ansible.png"
+                        },
+                        "Id": {
+                            "S": "ANSIBLE"
+                        },
+                        "Description": {
+                            "S": "You are using Ansible"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "IconUrl": {
+                            "S": "https://<S3-BASE-URL>/badges/deadlanguage.png"
+                        },
+                        "Description": {
+                            "S": "You used an obscure/dead programming language in the game. Impressive!"
+                        },
+                        "Id": {
+                            "S": "DEADLANGUAGE"
+                        },
+                        "Value": {
+                            "N": "2500"
+                        },
+                        "Name": {
+                            "S": "Used a dead programming language"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "IconUrl": {
+                            "S": "https://<S3-BASE-URL>/badges/noice500.png"
+                        },
+                        "Description": {
+                            "S": "The Unicorn Rentals management team is very pleased with your work"
+                        },
+                        "Id": {
+                            "S": "NOICE500"
+                        },
+                        "Value": {
+                            "N": "500"
+                        },
+                        "Name": {
+                            "S": "Noice!"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "Name": {
+                            "S": "Secret badge"
+                        },
+                        "Value": {
+                            "N": "500"
+                        },
+                        "IconUrl": {
+                            "S": "https://<S3-BASE-URL>/badges/lifeboat.png"
+                        },
+                        "Id": {
+                            "S": "SECRET3"
+                        },
+                        "Description": {
+                            "S": "You got this secret badge!"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "IconUrl": {
+                            "S": "https://<S3-BASE-URL>/badges/multiregion.png"
+                        },
+                        "Description": {
+                            "S": "People on your team don't speak the same language."
+                        },
+                        "Id": {
+                            "S": "MULTILINGUAL"
+                        },
+                        "Value": {
+                            "N": "2000"
+                        },
+                        "Name": {
+                            "S": "You have a multi lingual team!"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "IconUrl": {
+                            "S": "https://<S3-BASE-URL>/badges/fine.png"
+                        },
+                        "Description": {
+                            "S": "So everything is on fire, but you are somehow cool with it. This is fine."
+                        },
+                        "Id": {
+                            "S": "THISISFINE"
+                        },
+                        "Value": {
+                            "N": "500"
+                        },
+                        "Name": {
+                            "S": "This is fine."
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "IconUrl": {
+                            "S": "https://<S3-BASE-URL>/badges/churn.png"
+                        },
+                        "Description": {
+                            "S": "We told you not to do it, but for some reason you did and now we have to take a lot of points away from you."
+                        },
+                        "Id": {
+                            "S": "OTHERREGION"
+                        },
+                        "Value": {
+                            "N": "-1000000"
+                        },
+                        "Name": {
+                            "S": "You deployed stuff in another region"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "Name": {
+                            "S": "Cash4Code"
+                        },
+                        "Value": {
+                            "N": "500"
+                        },
+                        "IconUrl": {
+                            "S": "https://<S3-BASE-URL>/badges/cash4code.png"
+                        },
+                        "Id": {
+                            "S": "CASH4CODE"
+                        },
+                        "Description": {
+                            "S": "We know it's called cash4code, but we're giving you points for code instead."
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "IconUrl": {
+                            "S": "https://<S3-BASE-URL>/badges/winbeanstalk.png"
+                        },
+                        "Description": {
+                            "S": "Completed a Windows Challenge"
+                        },
+                        "Id": {
+                            "S": "Windows03"
+                        },
+                        "Value": {
+                            "N": "5000"
+                        },
+                        "Name": {
+                            "S": "Completed a Windows Challenge"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "Name": {
+                            "S": "Running RHEL"
+                        },
+                        "Value": {
+                            "N": "500"
+                        },
+                        "IconUrl": {
+                            "S": "https://<S3-BASE-URL>/badges/shadowman.png"
+                        },
+                        "Id": {
+                            "S": "SHADOWMAN"
+                        },
+                        "Description": {
+                            "S": "You are running RedHat Enterprise Linux"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "Name": {
+                            "S": "Processed an SQS Message"
+                        },
+                        "Value": {
+                            "N": "2500"
+                        },
+                        "IconUrl": {
+                            "S": "https://<S3-BASE-URL>/badges/sqs.png"
+                        },
+                        "Id": {
+                            "S": "SQSTRANSPORT"
+                        },
+                        "Description": {
+                            "S": "Your team has processed a message that was sent to you over SQS"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "IconUrl": {
+                            "S": "https://<S3-BASE-URL>/badges/cheater.png"
+                        },
+                        "Description": {
+                            "S": "We think you are probably cheating. Thanks for trying to rip us off!"
+                        },
+                        "Id": {
+                            "S": "CHEATER"
+                        },
+                        "Value": {
+                            "N": "-1000"
+                        },
+                        "Name": {
+                            "S": "Probably cheating"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "IconUrl": {
+                            "S": "https://<S3-BASE-URL>/badges/noice50.png"
+                        },
+                        "Description": {
+                            "S": "The Unicorn Rentals management team is pleased with your work"
+                        },
+                        "Id": {
+                            "S": "NOICE50"
+                        },
+                        "Value": {
+                            "N": "50"
+                        },
+                        "Name": {
+                            "S": "Noice!"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "Name": {
+                            "S": "Secret badge"
+                        },
+                        "Value": {
+                            "N": "500"
+                        },
+                        "IconUrl": {
+                            "S": "https://<S3-BASE-URL>/badges/lifeboat.png"
+                        },
+                        "Id": {
+                            "S": "SECRET1"
+                        },
+                        "Description": {
+                            "S": "You got this secret badge!"
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "<BADGE-TABLE>": [
+            {
+                "PutRequest": {
+                    "Item": {
+                        "Name": {
+                            "S": "I know guac is extra"
+                        },
+                        "Value": {
+                            "N": "500"
+                        },
+                        "IconUrl": {
+                            "S": "https://<S3-BASE-URL>/badges/guac.png"
+                        },
+                        "Id": {
+                            "S": "GUAC"
+                        },
+                        "Description": {
+                            "S": "Hey it takes money to make money"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "IconUrl": {
+                            "S": "https://<S3-BASE-URL>/badges/cheater.png"
+                        },
+                        "Description": {
+                            "S": "You tried to bribe one of the GameDay staff. Whether or not it worked depends on how what you tried to bribe us with"
+                        },
+                        "Id": {
+                            "S": "BRIBERY"
+                        },
+                        "Value": {
+                            "N": "-1000"
+                        },
+                        "Name": {
+                            "S": "Attempted bribery"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "IconUrl": {
+                            "S": "https://<S3-BASE-URL>/badges/survivor.png"
+                        },
+                        "Description": {
+                            "S": "Your team left you"
+                        },
+                        "Id": {
+                            "S": "SURVIVOR"
+                        },
+                        "Value": {
+                            "N": "1000"
+                        },
+                        "Name": {
+                            "S": "Survivor!"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "IconUrl": {
+                            "S": "https://<S3-BASE-URL>/badges/winec2run.png"
+                        },
+                        "Description": {
+                            "S": "Completed a Windows Challenge"
+                        },
+                        "Id": {
+                            "S": "Windows01"
+                        },
+                        "Value": {
+                            "N": "5000"
+                        },
+                        "Name": {
+                            "S": "Completed a Windows Challenge"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "Name": {
+                            "S": "Completed the S3 scavenger hunt"
+                        },
+                        "Value": {
+                            "N": "5000"
+                        },
+                        "IconUrl": {
+                            "S": "https://<S3-BASE-URL>/badges/s3hunt.png"
+                        },
+                        "Id": {
+                            "S": "S3Scavenger"
+                        },
+                        "Description": {
+                            "S": "You solved the S3 scavenger hunt challenge"
+                        }
+                    }
+                }
+            }
+        ]
+    }
+]

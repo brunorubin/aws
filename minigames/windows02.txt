@@ -1,0 +1,3 @@
+Instructions:     This is a Windows 2016 Nano instance. There is a file in c:\temp that has your code. No RDP access. Hint: PowerShell remoting?
+AMI:      ami-a1c602ce
+Creds:   User: ~\Administrator Pass:-3wAC4BuTG73?(Et$Eyd96ZzqbV)aOBb

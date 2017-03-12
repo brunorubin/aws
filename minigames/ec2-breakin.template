@@ -1,0 +1,94 @@
+{
+    "Resources": {
+        "TheVPC": {
+            "Type": "AWS::EC2::VPC",
+            "Properties": {
+                "CidrBlock": "10.45.0.0/16"
+            }
+        },
+        "TheSubnet": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "CidrBlock": "10.45.0.0/24",
+                "VpcId": {
+                    "Ref": "TheVPC"
+                }
+            }
+        },
+        "TheDHCPOpts": {
+            "Type": "AWS::EC2::DHCPOptions",
+            "Properties": {
+                "DomainName": "unicorn.rentals",
+                "DomainNameServers": [
+                    "127.0.0.1"
+                ]
+            }
+        },
+        "TheNACL": {
+            "Type": "AWS::EC2::NetworkAcl",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "TheVPC"
+                }
+            }
+        },
+        "TheRouteTable": {
+            "Type": "AWS::EC2::RouteTable",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "TheVPC"
+                }
+            }
+        },
+        "TheInstance": {
+            "Type": "AWS::EC2::Instance",
+            "Properties": {
+                "InstanceType": "t2.micro",
+                "ImageId": "ami-6fa06400",
+                "SubnetId": {"Ref": "TheSubnet"},
+                "Tags": [
+                    {
+                        "Key": "Username",
+                        "Value": "bob"
+                    },
+                    {
+                        "Key": "Password",
+                        "Value": "bob"
+                    },
+                    {
+                        "Key": "Secure",
+                        "Value": "No"
+                    },
+                    {
+                        "Key": "Port",
+                        "Value": "23"
+                    }
+                ]
+            }
+        },
+        "TheDHCPOptsAssociation": {
+            "Type": "AWS::EC2::VPCDHCPOptionsAssociation",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "TheVPC"
+                },
+                "DhcpOptionsId": {
+                    "Ref": "TheDHCPOpts"
+                }
+            }
+        },
+        "TheRoute": {
+            "Type": "AWS::EC2::Route",
+            "DependsOn": "TheInstance",
+            "Properties": {
+                "RouteTableId": {
+                    "Ref": "TheRouteTable"
+                },
+                "DestinationCidrBlock": "0.0.0.0/0",
+                "InstanceId": {
+                    "Ref": "TheInstance"
+                }
+            }
+        }
+    }
+}

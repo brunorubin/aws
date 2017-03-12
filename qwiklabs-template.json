@@ -1,0 +1,416 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "This template creates a cross account role and registers a team for gameday.",
+    "Outputs": {
+        "RoleARN": {
+            "Description": "The ARN of the role that can be assumed by the other account.",
+            "Value": {
+                "Fn::GetAtt": [
+                    "GameDayRole",
+                    "Arn"
+                ]
+            }
+        }
+    },
+    "Parameters": {
+        "OtherAccountNumber": {
+            "AllowedPattern": "[0-9]+",
+            "Default": "<MASTER_ACCOUNT>",
+            "Description": "The 12 digit AWS account number to grant access to.",
+            "MaxLength": "12",
+            "MinLength": "12",
+            "Type": "String"
+        },
+        "SNSArn": {
+            "Default": "<SNS_ARN>",
+            "Description": "The ARN of the team registration SNS topic",
+            "Type": "String"
+        }
+    },
+    "Resources": {
+        "GameDayRole": {
+            "Properties": {
+                "AssumeRolePolicyDocument": {
+                    "Statement": [
+                        {
+                            "Action": "sts:AssumeRole",
+                            "Effect": "Allow",
+                            "Principal": {
+                                "AWS": {
+                                    "Fn::Join": [
+                                        "",
+                                        [
+                                            "arn:aws:iam::",
+                                            {
+                                                "Ref": "OtherAccountNumber"
+                                            },
+                                            ":root"
+                                        ]
+                                    ]
+                                }
+                            },
+                            "Sid": ""
+                        }
+                    ],
+                    "Version": "2012-10-17"
+                },
+                "Path": "/",
+                "Policies": [
+                    {
+                        "PolicyDocument": {
+                            "Statement": [
+                                {
+                                    "Action": [
+                                        "*"
+                                    ],
+                                    "Effect": "Allow",
+                                    "Resource": "*"
+                                }
+                            ],
+                            "Version": "2012-10-17"
+                        },
+                        "PolicyName": "GameDayAdminAccess"
+                    }
+                ]
+            },
+            "Type": "AWS::IAM::Role"
+        },
+        "PlayerInstanceProfile": {
+            "Properties": {
+                "Roles": [
+                    {
+                        "Ref": "PlayerRole"
+                    }
+                ]
+            },
+            "Type": "AWS::IAM::InstanceProfile"
+        },
+        "PlayerPolicy": {
+            "Properties": {
+                "Description": "Policy for GameDay players",
+                "PolicyDocument": {
+                    "Statement": [
+                        {
+                            "Action": [
+                                "ec2:*"
+                            ],
+                            "Condition": {
+                                "StringNotEquals": {
+                                    "ec2:Region": {
+                                        "Ref": "AWS::Region"
+                                    }
+                                }
+                            },
+                            "Effect": "Deny",
+                            "Resource": "*",
+                            "Sid": "ControlAccessToRegion"
+                        },
+                        {
+                            "Action": [
+                                "autoscaling:*",
+                                "lambda:*",
+                                "rds:*",
+                                "dynamodb:*",
+                                "kinesis:*",
+                                "kms:*",
+                                "elasticloadbalancing:*",
+                                "ecr:*",
+                                "ecs:*",
+                                "s3:*",
+                                "cloudformation:*",
+                                "elasticbeanstalk:*",
+                                "iam:Generate*",
+                                "iam:Get*",
+                                "iam:List*",
+                                "logs:*",
+                                "cloudwatch:*",
+                                "events:*",
+                                "elasticache:*"
+                            ],
+                            "Effect": "Allow",
+                            "Resource": "*",
+                            "Sid": "OverlyPermissivePolicy"
+                        },
+                        {
+                            "Action": "ec2:RunInstances",
+                            "Condition": {
+                                "StringEquals": {
+                                    "ec2:InstanceType": [
+                                        "t2.micro"
+                                    ]
+                                }
+                            },
+                            "Effect": "Allow",
+                            "Resource": [
+                                "arn:aws:ec2:*:*:instance/*"
+                            ],
+                            "Sid": "OnlyAllowLaunchOfT2Instances"
+                        },
+                        {
+                            "Action": "ec2:RunInstances",
+                            "Effect": "Allow",
+                            "Resource": [
+                                "arn:aws:ec2:*::image/ami-*",
+                                "arn:aws:ec2:*:*:subnet/*",
+                                "arn:aws:ec2:*:*:network-interface/*",
+                                "arn:aws:ec2:*:*:volume/*",
+                                "arn:aws:ec2:*:*:key-pair/*",
+                                "arn:aws:ec2:*:*:security-group/*"
+                            ],
+                            "Sid": "AllowAllTheOtherRunInstancesResources"
+                        },
+                        {
+                            "Action": [
+                                "ec2:Accept*",
+                                "ec2:Allocate*",
+                                "ec2:Assign*",
+                                "ec2:Associate*",
+                                "ec2:Attach*",
+                                "ec2:Authorize*",
+                                "ec2:Bundle*",
+                                "ec2:Cancel*",
+                                "ec2:Confirm*",
+                                "ec2:Copy*",
+                                "ec2:Create*",
+                                "ec2:Delete*",
+                                "ec2:Deregister*",
+                                "ec2:Describe*",
+                                "ec2:Detach*",
+                                "ec2:Disable*",
+                                "ec2:Disassociate*",
+                                "ec2:Enable*",
+                                "ec2:Get*",
+                                "ec2:Import*",
+                                "ec2:Modify*",
+                                "ec2:Monitor*",
+                                "ec2:Move*",
+                                "ec2:Reboot*",
+                                "ec2:Register*",
+                                "ec2:Reject*",
+                                "ec2:Release*",
+                                "ec2:Replace*",
+                                "ec2:Report*",
+                                "ec2:Reset*",
+                                "ec2:Restore*",
+                                "ec2:Revoke*",
+                                "ec2:Start*",
+                                "ec2:Stop*",
+                                "ec2:Terminate*",
+                                "ec2:Unassign*",
+                                "ec2:Unmonitor*"
+                            ],
+                            "Effect": "Allow",
+                            "Resource": "*",
+                            "Sid": "AllowAllOtherEC2ActionsExceptSpotAndReserved"
+                        },
+                        {
+                            "Action": [
+                                "ec2:ModifyReservedInstances",
+                                "ec2:PurchaseHostReservation",
+                                "ec2:PurchaseReservedInstancesOffering",
+                                "ec2:PurchaseScheduledInstances",
+                                "rds:PurchaseReservedDBInstancesOffering",
+                                "dynamodb:PurchaseReservedCapacityOfferings",
+                                "ec2:CancelSpotFleetRequests",
+                                "ec2:ModifySpotFleetRequest",
+                                "ec2:RequestSpotFleet",
+                                "ec2:RequestSpotInstances",
+                                "ec2:CancelSpotInstanceRequests",
+                                "ec2:CreateSpotDatafeedSubscription",
+                                "ec2:DeleteSpotDatafeedSubscription"
+                            ],
+                            "Effect": "Deny",
+                            "Resource": "*",
+                            "Sid": "DontBuyReservationsOrSpotPlz"
+                        },
+                        {
+                            "Action": "sqs:*",
+                            "Effect": "Allow",
+                            "Resource": {
+                                "Fn::Sub": "arn:aws:sqs:${AWS::Region}:*"
+                            },
+                            "Sid": "Stmt1479239182610"
+                        },
+                        {
+                            "Action": "sns:*",
+                            "Effect": "Allow",
+                            "Resource": {
+                                "Fn::Sub": "arn:aws:sns:${AWS::Region}:*"
+                            },
+                            "Sid": "Stmt1479239209771"
+                        },
+                        {
+                            "Action": "apigateway:*",
+                            "Effect": "Allow",
+                            "Resource": {
+                                "Fn::Sub": "arn:aws:apigateway:${AWS::Region}::*"
+                            },
+                            "Sid": "Stmt1479239367624"
+                        },
+                        {
+                            "Action": "execute-api:*",
+                            "Effect": "Allow",
+                            "Resource": {
+                                "Fn::Sub": "arn:aws:execute-api:${AWS::Region}:*"
+                            },
+                            "Sid": "Stmt1479239404857"
+                        },
+                        {
+                            "Action": "cloudformation:*",
+                            "Effect": "Deny",
+                            "Resource": {
+                                "Ref": "AWS::StackId"
+                            },
+                            "Sid": "DontDeleteMyStack"
+                        },
+                        {
+                            "Action": "iam:PassRole",
+                            "Effect": "Allow",
+                            "Resource": {
+                                "Fn::GetAtt": [
+                                    "PlayerRole",
+                                    "Arn"
+                                ]
+                            }
+                        },
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "ssm:DescribeAssociation",
+                                "ssm:GetDocument",
+                                "ssm:ListAssociations",
+                                "ssm:UpdateAssociationStatus",
+                                "ssm:UpdateInstanceInformation",
+                                "ec2messages:AcknowledgeMessage",
+                                "ec2messages:DeleteMessage",
+                                "ec2messages:FailMessage",
+                                "ec2messages:GetEndpoint",
+                                "ec2messages:GetMessages",
+                                "ec2messages:SendReply",
+                                "ds:CreateComputer",
+                                "ds:DescribeDirectories",
+                                "ssm:ListCommandInvocations",
+                                "ssm:ListDocuments",
+                                "ssm:DescribeInstanceProperties",
+                                "ssm:DescribeDocument",
+                                "ssm:DescribeDocumentParameters",
+                                "ssm:SendCommand",
+                                "acm:ListCertificates"
+                            ],
+                            "Resource": "*",
+                            "Sid":"SSMPolicyForMiniGames"
+                        },
+                    ],
+                    "Version": "2012-10-17"
+                },
+                "Roles": [
+                    {
+                        "Ref": "PlayerRole"
+                    }
+                ]
+            },
+            "Type": "AWS::IAM::ManagedPolicy"
+        },
+        "PlayerRole": {
+            "Properties": {
+                "AssumeRolePolicyDocument": {
+                    "Statement": [
+                        {
+                            "Action": "sts:AssumeRole",
+                            "Effect": "Allow",
+                            "Principal": {
+                                "AWS": {
+                                    "Fn::Join": [
+                                        "",
+                                        [
+                                            "arn:aws:iam::",
+                                            {
+                                                "Ref": "OtherAccountNumber"
+                                            },
+                                            ":root"
+                                        ]
+                                    ]
+                                }
+                            },
+                            "Sid": ""
+                        },
+                        {
+                            "Action": "sts:AssumeRole",
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "ec2.amazonaws.com"
+                            },
+                            "Sid": ""
+                        },
+                        {
+                            "Action": "sts:AssumeRole",
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "events.amazonaws.com"
+                            },
+                            "Sid": ""
+                        },
+                        {
+                            "Action": "sts:AssumeRole",
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                            },
+                            "Sid": ""
+                        },
+                        {
+                            "Action": "sts:AssumeRole",
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "elasticbeanstalk.amazonaws.com"
+                            },
+                            "Sid": ""
+                        },
+                        {
+                            "Action": "sts:AssumeRole",
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "apigateway.amazonaws.com"
+                            },
+                            "Sid": ""
+                        },
+                        {
+                            "Action": "sts:AssumeRole",
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "ecs.amazonaws.com"
+                            },
+                            "Sid": ""
+                        }
+                    ],
+                    "Version": "2012-10-17"
+                }
+            },
+            "Type": "AWS::IAM::Role"
+        },
+        "RegisterForGameday": {
+            "Properties": {
+                "AccountId": {
+                    "Ref": "AWS::AccountId"
+                },
+                "PlayerRoleArn": {
+                    "Fn::GetAtt": [
+                        "PlayerRole",
+                        "Arn"
+                    ]
+                },
+                "RoleArn": {
+                    "Fn::GetAtt": [
+                        "GameDayRole",
+                        "Arn"
+                    ]
+                },
+                "ServiceToken": {
+                    "Ref": "SNSArn"
+                }
+            },
+            "Type": "Custom::GamedayRegister",
+            "Version": "1.0"
+        }
+    }
+}

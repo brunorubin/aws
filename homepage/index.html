@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Cash 4 Code</title>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="jquery-ui.js"></script>
+  </head>
+  <body>
+    <div id="container">
+		<h1>Welcome to Cash 4 Code!</h1>
+		<div id="header">
+			Cash4Code: Quality code 4 less! <br />
+		</div>
+		<br><br>
+		<div id="codesContainer">
+			<div>
+				If you submit code here, we'll give you cash!<br><br>
+				<textarea id="codeInput" rows=4 cols=50></textarea><br><br>
+				<div id="codeSection">
+					<button id="submit" onclick="codeSubmit()">Submit Code</button>
+				</div><br>
+				<div id="code" style="visibility:hidden;">
+					Activation Code:
+					<span id="submitText">&nbsp;</span>
+				</div>
+			</div>
+		</div>
+  </body>
+  <script src="homepage.js"></script>
+</html>

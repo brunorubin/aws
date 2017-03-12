@@ -1,0 +1,124 @@
+{
+    "<CODE-LOOKUP-TABLE>": [
+        {
+            "PutRequest": {
+                "Item": {
+                    "Code": {
+                        "S": "9qqj7ntmgame"
+                    },
+                    "Badge": {
+                        "S": "EC2Breakin"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "Code": {
+                        "S": "GOTO10"
+                    },
+                    "Badge": {
+                        "S": "SECRET3"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "Code": {
+                        "S": "UnicornsOnWindows2016reInvent"
+                    },
+                    "Badge": {
+                        "S": "Windows01"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "Code": {
+                        "S": "itsmymoneyandiwantitnow"
+                    },
+                    "Badge": {
+                        "S": "CASH4CODE"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "Code": {
+                        "S": "fortranisyourfriend"
+                    },
+                    "Badge": {
+                        "S": "SECRET1"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "Code": {
+                        "S": "fda0eaa94240666732f2458f0480fabf3892317c562b9ce5eeb2b36497d90e60"
+                    },
+                    "Badge": {
+                        "S": "Windows03"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "Code": {
+                        "S": "dvorakrulez"
+                    },
+                    "Badge": {
+                        "S": "SECRET2"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "Code": {
+                        "S": "UnicornsDoNotLikeGUIs"
+                    },
+                    "Badge": {
+                        "S": "Windows02"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "Code": {
+                        "S": "9qqj7ntmunic"
+                    },
+                    "Badge": {
+                        "S": "S3Scavenger"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "Code": {
+                        "S": "adalovelace"
+                    },
+                    "Badge": {
+                        "S": "SECRET4"
+                    }
+                }
+            }
+        }
+    ]
+}

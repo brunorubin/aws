@@ -1,0 +1,167 @@
+{
+    "<GAME-CONFIG-TABLE>": [
+        {
+            "PutRequest": {
+                "Item": {
+                    "Config": {
+                        "S": "startTime"
+                    },
+                    "Value": {
+                        "N": "<START-TIME>"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "Config": {
+                        "S": "active"
+                    },
+                    "Value": {
+                        "BOOL": true
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "Config": {
+                        "S": "masterAccount"
+                    },
+                    "Value": {
+                        "S": <MASTER-ACCOUNT>
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "Config": {
+                        "S": "badge_links"
+                    },
+                    "Value": {
+                        "L": [
+                            {
+                                "M": {
+                                    "Link": {
+                                        "S": "https://s3-us-west-2.amazonaws.com/2016reinventscavengerhunt/clue.txt"
+                                    },
+                                    "Description": {
+                                        "S": "An S3 treasure hunt game"
+                                    },
+                                    "Title": {
+                                        "S": "S3 Game"
+                                    }
+                                }
+                            },
+                            {
+                                "M": {
+                                    "Link": {
+                                        "S": "https://<MINIGAME-URL>/minigames/ec2-breakin.template"
+                                    },
+                                    "Description": {
+                                        "S": "Try to break inside!"
+                                    },
+                                    "Title": {
+                                        "S": "EC2 Game"
+                                    }
+                                }
+                            },
+                            {
+                                "M": {
+                                    "Link": {
+                                        "S": "https://<MINIGAME-URL>/minigames/windows02.txt"
+                                    },
+                                    "Description": {
+                                        "S": "How do you get inside?"
+                                    },
+                                    "Title": {
+                                        "S": "Windows #2"
+                                    }
+                                }
+                            },
+                            {
+                                "M": {
+                                    "Link": {
+                                        "S": "https://<MINIGAME-URL>/minigames/windows03.txt"
+                                    },
+                                    "Description": {
+                                        "S": "Deploy a .NET ElasticBeanstalk app"
+                                    },
+                                    "Title": {
+                                        "S": "Windows #3"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "Config": {
+                        "S": "code_links"
+                    },
+                    "Value": {
+                        "L": [
+                            {
+                                "M": {
+                                    "Link": {
+                                        "S": "https://<CODE-SNIPPETS-URL>/phase-0.zip"
+                                    },
+                                    "Description": {
+                                        "S": "This last DevOps team left this for you."
+                                    },
+                                    "Title": {
+                                        "S": "Starting code"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "Config": {
+                        "S": "playerRegion"
+                    },
+                    "Value": {
+                        "S": "<PLAYER-REGION>"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "Config": {
+                        "S": "endTime"
+                    },
+                    "Value": {
+                        "N": "<END-TIME>"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "Config": {
+                        "S": "show_all_endpoints"
+                    },
+                    "Value": {
+                        "S": "false"
+                    }
+                }
+            }
+        }
+    ]
+}

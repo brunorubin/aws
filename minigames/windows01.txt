@@ -1,0 +1,2 @@
+Instructions: You have to log on to this instance via RDP to get the code. The code will be displayed upon logging on to this Windows instance. You will NOT be provided the password or .PEM file. Hint: What can you do with EC2 Run Command?
+AMI:      ami-22c7034d
